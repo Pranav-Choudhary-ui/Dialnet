@@ -28,13 +28,14 @@
             android:layout_width="39dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:contentDescription="Contact Image"
             android:src="@drawable/baseline_account_circle_24"
             app:tint="#444444"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="Contact Name"
+            android:text='@={contact.firstName + " " + contact.lastName}'
             android:layout_weight="4"
             />
 

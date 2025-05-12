@@ -17,6 +17,6 @@ public interface ContactsDAO {
     @Delete
     void delete(Contacts contacts);
 
-    @Query("SELECT * FROM Contact")
+    @Query("SELECT * FROM contact_table")
     LiveData<List<Contacts>> getAllContacts();
 }
