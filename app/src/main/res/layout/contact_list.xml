@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--Layout of Contact item-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+<!--Data Binding-->
     <data>
         <variable
-        name="contact"
-        type="com.example.dialnet.Contacts" />
-
+            name="contact"
+            type="com.example.dialnet.Contacts" />
     </data>
 
-
-
+<!--Linear - Parent Layout-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -23,22 +23,25 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         >
-
+<!--Image of the Contact -->
         <ImageView
-            android:layout_width="39dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="Contact Image"
             android:src="@drawable/baseline_account_circle_24"
-            app:tint="#444444"/>
+            app:tint="#444444"
+            />
+<!--        Name of the Contact -->
         <TextView
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text='@={contact.firstName + " " + contact.lastName}'
+            android:layout_width="0dp"
             android:layout_weight="4"
+            android:typeface="monospace"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="@{contact.firstName + ' ' + contact.lastName}"
             />
 
     </LinearLayout>
-
 </layout>

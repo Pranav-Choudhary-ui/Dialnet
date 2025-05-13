@@ -19,14 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ContactViewHolder>
         this.contact = contact;
     }
 
-    class ContactViewHolder extends RecyclerView.ViewHolder{
-        private ContactListBinding contactListBinding;
 
-        public ContactViewHolder(@NonNull ContactListBinding contactListBinding) {
-            super(contactListBinding.getRoot());
-            this.contactListBinding = contactListBinding;
-        }
-    }
 
     @NonNull
     @Override
@@ -61,5 +54,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ContactViewHolder>
     public void setContact(ArrayList<Contacts> contact) {
         this.contact = contact;
         notifyDataSetChanged();
+    }
+    class ContactViewHolder extends RecyclerView.ViewHolder{
+        private ContactListBinding contactListBinding;
+
+        public ContactViewHolder(@NonNull ContactListBinding contactListBinding) {
+            super(contactListBinding.getRoot());
+            this.contactListBinding = contactListBinding;
+        }
     }
 }

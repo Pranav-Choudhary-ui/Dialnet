@@ -9,14 +9,14 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface ContactsDAO {
+public interface ContactsDAO { // Data Access Object
 
     @Insert
-    void insert(Contacts contacts);
+    void insert(Contacts contacts); // Insert Command to Database
 
     @Delete
-    void delete(Contacts contacts);
+    void delete(Contacts contacts);  // Delete Command to Database
 
     @Query("SELECT * FROM contact_table")
-    LiveData<List<Contacts>> getAllContacts();
+    LiveData<List<Contacts>> getAllContacts(); // Show All Contacts
 }

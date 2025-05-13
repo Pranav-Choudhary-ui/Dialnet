@@ -21,8 +21,6 @@ public class Repository {
         ContactDatabase contactDatabase = ContactDatabase.getInstance(application);
         this.contactDAO = contactDatabase.getContactDAO();
 
-
-
         executorService = Executors.newSingleThreadExecutor();
         handler = new Handler(Looper.getMainLooper());
     }

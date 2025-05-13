@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--Add new Contact Activity-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--    Data Binding-->
     <data>
         <variable
             name="contactClickHandler"
@@ -11,94 +12,92 @@
         <variable
             name="contact"
             type="com.example.dialnet.Contacts" />
-
     </data>
 
-<LinearLayout
-
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddNewContactActivity"
-    android:orientation="vertical"
-    >
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="30dp"
-        android:src="@drawable/baseline_account_circle_24"
-        android:layout_gravity="center_horizontal"
-        app:tint="#444444"
-        />
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<!--    Linear - Parent Layout-->
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:id="@+id/firstNameInputLayout"
-        android:layout_height="wrap_content"
-        android:hint="First Name"
-        app:boxBackgroundMode="outline"
-
-        android:autofillHints="name"
+        android:layout_height="match_parent"
+        tools:context=".AddNewContactActivity"
+        android:orientation="vertical"
         android:gravity="center_horizontal"
         >
+<!--    Contact Image-->
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/baseline_account_circle_24"
+            app:tint="#444444"
+            />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/firstName"
-            android:text="@={contact.firstName}"
+<!--        First Name Layout-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstNameInputLayout"
             android:layout_width="330dp"
-            android:layout_height="60dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="First Name">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:id="@+id/lastNameInputLayout"
-        android:layout_height="wrap_content"
-        android:hint="Last Name"
-        app:boxBackgroundMode="outline"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords|textPersonName"
+                android:text="@={contact.firstName}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:autofillHints="name"
-        android:gravity="center_horizontal">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastName"
-            android:text="@={contact.lastName}"
+<!--        Last Name Layout-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastNameInputLayout"
             android:layout_width="330dp"
-            android:layout_height="60dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Last Name">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:id="@+id/NumberInputLayout"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        app:boxBackgroundMode="outline"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={contact.lastName}"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:autofillHints="name"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:autofillHints="name"
-        android:gravity="center_horizontal">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone"
-            android:text="@={contact.phone}"
+<!--        Phone Number Layout-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/NumberInputLayout"
             android:layout_width="330dp"
-            android:layout_height="60dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Phone Number">
 
-    <Button
-        android:id="@+id/addContactButton"
-        android:layout_width="330dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Add Contact"
-        android:onClick="@{contactClickHandler::onAddContactClicked}"
-        />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="phone"
+                android:inputType="phone"
+                android:imeOptions="actionDone"
+                android:text="@={contact.phone}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+<!--    Button to Add Contact-->
+        <Button
+            android:id="@+id/addContactButton"
+            android:layout_width="330dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:text="Add Contact"
+            android:onClick="@{contactClickHandler::onAddContactClicked}"
+            />
+    </LinearLayout>
 </layout>
