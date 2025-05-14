@@ -1,10 +1,10 @@
-<!--Add new Contact Activity-->
+<!-- Add new Contact Activity -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    Data Binding-->
+    <!-- Data Binding -->
     <data>
         <variable
             name="contactClickHandler"
@@ -14,33 +14,34 @@
             type="com.example.dialnet.Contacts" />
     </data>
 
-<!--    Linear - Parent Layout-->
+    <!-- Linear - Parent Layout -->
     <LinearLayout
-        android:id="@+id/main"
+        android:id="@+id/AddContactLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddNewContactActivity"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        >
-<!--    Contact Image-->
+        tools:context=".AddNewContactActivity">
+
+        <!-- Contact Image -->
         <ImageView
+            android:id="@+id/Contact_Img"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="30dp"
             android:src="@drawable/baseline_account_circle_24"
-            app:tint="#444444"
-            />
+            android:contentDescription="Contact Image"
+            app:tint="#444444" />
 
-<!--        First Name Layout-->
+        <!-- First Name Layout -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/firstNameInputLayout"
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="First Name">
+            android:hint="First Name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/firstName"
@@ -52,33 +53,34 @@
                 android:text="@={contact.firstName}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        Last Name Layout-->
+        <!-- Last Name Layout -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lastNameInputLayout"
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Last Name">
+            android:hint="Last Name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={contact.lastName}"
+                android:autofillHints="name"
                 android:imeOptions="actionNext"
-                android:inputType="textPersonName"
-                android:autofillHints="name"/>
+                android:importantForAutofill="yes"
+                android:inputType="textCapWords|textPersonName"
+                android:text="@={contact.lastName}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        Phone Number Layout-->
+        <!-- Phone Number Layout -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/NumberInputLayout"
             android:layout_width="330dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Phone Number">
+            android:hint="Phone Number"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone"
@@ -90,14 +92,14 @@
                 android:text="@={contact.phone}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--    Button to Add Contact-->
+
+        <!-- Button to Add Contact -->
         <Button
             android:id="@+id/addContactButton"
             android:layout_width="330dp"
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:text="Add Contact"
-            android:onClick="@{contactClickHandler::onAddContactClicked}"
-            />
+            android:onClick="@{contactClickHandler::onAddContactClicked}" />
     </LinearLayout>
 </layout>

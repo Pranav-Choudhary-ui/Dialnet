@@ -18,4 +18,9 @@ public class MainActivityClickHandler {
         context.startActivity(i);
     }
 
+    public void onDialPadClicked(View view){
+
+    }
+
+
 }
